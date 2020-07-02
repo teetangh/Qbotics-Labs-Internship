@@ -293,12 +293,6 @@ class_loader_DIR:PATH=/opt/ros/melodic/share/class_loader/cmake
 //The directory containing a CMake configuration file for cpp_common.
 cpp_common_DIR:PATH=/opt/ros/melodic/share/cpp_common/cmake
 
-//The directory containing a CMake configuration file for gazebo_msgs.
-gazebo_msgs_DIR:PATH=/opt/ros/melodic/share/gazebo_msgs/cmake
-
-//The directory containing a CMake configuration file for geometry_msgs.
-geometry_msgs_DIR:PATH=/opt/ros/melodic/share/geometry_msgs/cmake
-
 //Value Computed by CMake
 gmock_BINARY_DIR:STATIC=/home/kaustav/simulation_ws/build/gtest/googlemock
 
@@ -360,12 +354,6 @@ m2wr_description_SOURCE_DIR:STATIC=/home/kaustav/simulation_ws/src/m2wr_descript
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/melodic/share/message_runtime/cmake
 
-//Value Computed by CMake
-motion_plan_BINARY_DIR:STATIC=/home/kaustav/simulation_ws/build/worlds_and_mapping
-
-//Value Computed by CMake
-motion_plan_SOURCE_DIR:STATIC=/home/kaustav/simulation_ws/src/worlds_and_mapping
-
 //The directory containing a CMake configuration file for pluginlib.
 pluginlib_DIR:PATH=/opt/ros/melodic/share/pluginlib/cmake
 
@@ -393,23 +381,11 @@ roslib_DIR:PATH=/opt/ros/melodic/share/roslib/cmake
 //The directory containing a CMake configuration file for rospack.
 rospack_DIR:PATH=/opt/ros/melodic/share/rospack/cmake
 
-//The directory containing a CMake configuration file for rospy.
-rospy_DIR:PATH=/opt/ros/melodic/share/rospy/cmake
-
 //The directory containing a CMake configuration file for rostime.
 rostime_DIR:PATH=/opt/ros/melodic/share/rostime/cmake
 
-//The directory containing a CMake configuration file for sensor_msgs.
-sensor_msgs_DIR:PATH=/opt/ros/melodic/share/sensor_msgs/cmake
-
 //The directory containing a CMake configuration file for std_msgs.
 std_msgs_DIR:PATH=/opt/ros/melodic/share/std_msgs/cmake
-
-//The directory containing a CMake configuration file for std_srvs.
-std_srvs_DIR:PATH=/opt/ros/melodic/share/std_srvs/cmake
-
-//The directory containing a CMake configuration file for trajectory_msgs.
-trajectory_msgs_DIR:PATH=/opt/ros/melodic/share/trajectory_msgs/cmake
 
 //The directory containing a CMake configuration file for urdf.
 urdf_DIR:PATH=/opt/ros/melodic/share/urdf/cmake
@@ -527,7 +503,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=5
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
