@@ -7,6 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export LD_LIBRARY_PATH="/home/kaustav/catkin_ws/install_isolated/lib:/opt/ros/melodic/lib"
-export PKG_CONFIG_PATH="/home/kaustav/catkin_ws/install_isolated/lib/pkgconfig:/opt/ros/melodic/lib/pkgconfig"
+export CMAKE_PREFIX_PATH="/home/kaustav/simulation_ws/devel:$CMAKE_PREFIX_PATH"
 export PWD="/home/kaustav/simulation_ws/build"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/kaustav/simulation_ws/devel/share/common-lisp"
+export ROS_PACKAGE_PATH="/home/kaustav/simulation_ws/src:$ROS_PACKAGE_PATH"

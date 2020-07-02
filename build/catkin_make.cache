@@ -1,2 +1,2 @@
-m2wr_description
+m2wr_description:worlds_and_mapping
 -DCATKIN_DEVEL_PREFIX=/home/kaustav/simulation_ws/devel -DCMAKE_INSTALL_PREFIX=/home/kaustav/simulation_ws/install -G Unix Makefiles
