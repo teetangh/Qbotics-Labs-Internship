@@ -1,0 +1,9 @@
+## References:
+    Robot Ignite Academy(The Construct)
+    https://www.theconstructsim.com/
+    wiki.ros.org
+    ROS URDF Links: http://wiki.ros.org/urdf/XML/link
+    ROS URDF Joints: http://wiki.ros.org/urdf/XML/joint
+    
+    Gazebo plugins:http://gazebosim.org/tutorials?tut=ros_gzplugins#Laser
+    other youtube channels
