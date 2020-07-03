@@ -15,7 +15,7 @@ Not in the base colour of the object and set its colour to Green by setting the 
 
 	baseColor: 0 1 0 
 
- you can see that the ball is shining.To remove the shining property of the ball set the metalness to 0 and  roughness to 1. 
+ you can see that the ball is shining. To remove the shining property of the ball set the metalness to 0 and  roughness to 1. 
 	
     metalness: 0
  	roughness: 1
@@ -41,7 +41,7 @@ Now we need to create boundary walls for the entire scenery. Begin by selecting 
     Solid -> Children -> Shape .
     Shape -> Box 
 
-Since we're dealing with the boundary wall, it helps to imagine how a boundary wall would actually look like.As before, set the appearance to PBR appearance. Set the size of the wall to:
+Since we're dealing with the boundary wall, it helps to imagine how a boundary wall would actually look like. As before, set the appearance to PBR appearance. Set the size of the wall to:
 
     size : 0.2 0.1 0.05
 
@@ -81,9 +81,9 @@ Similarly, for the fourth wall:
     DEF:
         Wall3_Solid 
 
-Voila!  you just created  four bounding walls for the given arena. As you can see all the four walls are connected and any changes made to a singular wall will be reflected in all the other walls. This can be verified by changing the property of any wall Like  changing the colour from metallic to White and  this will also change the same for all the other walls. As a bonus exercise you can add  base colour map and set it to image texture now from the urls menu select red brick wall.
+Voila!  you just created  four bounding walls for the given arena. As you can see all the four walls are connected and any changes made to a singular wall will be reflected in all the other walls. This can be verified by changing the property of any wall Like  changing the colour from metallic to White and  this will also change the same for all the other walls. As a bonus exercise you can add  base colour map and set it to image texture. Now from the urls menu select red brick wall.
 
     baseColourMap:  image texture
     URL: red brick wall 
 
-Now you can proceed on to the next  section of the documentation  which will discuss on view functionalities of the webots software.
+Now you can proceed on to the next section of the documentation which will discuss on field of view functionalities of the webots software.
