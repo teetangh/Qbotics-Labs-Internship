@@ -22,6 +22,6 @@ Set the coulomb friction to your desired value, for example 0 if you want fricti
 
         Coloumbfriction: 0 
 
-Now use control + alt to apply a force on the dumbbell and drag it along the environment also making sure that the walls had physics earlier or else the dumbbell will go out of scope.Play around with dumbbell with and without friction to get an idea of the Physics of the environment.
+Now use `control + alt` and drag using cursor to apply a force on the dumbbell and drag it along the environment also making sure that the walls had physics earlier or else the dumbbell will go out of scope.Play around with dumbbell with and without friction to get an idea of the Physics of the environment.
 
  congratulations for making it to the end of the section and proceed onto the next section for creating our very own `differential drive in Webots`.
