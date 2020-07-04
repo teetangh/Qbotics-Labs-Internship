@@ -262,6 +262,17 @@ DEF diff_drive_complete Robot {
         physics USE diff_drive_wheel_physics
       }
     }
+    DEF diff_drive_laser_scanner DistanceSensor {
+      translation 0.02 0 0.1
+      rotation 0 1 0 -1.27
+      children [
+        Shape {
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+    }
   ]
   boundingObject USE diff_drive_chassis
   physics Physics {
