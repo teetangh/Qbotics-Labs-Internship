@@ -314,4 +314,5 @@ DEF diff_drive_complete Robot {
   boundingObject USE diff_drive_chassis
   physics Physics {
   }
+  controller "diff_drive_obstacle_avoidance_controller"
 }
