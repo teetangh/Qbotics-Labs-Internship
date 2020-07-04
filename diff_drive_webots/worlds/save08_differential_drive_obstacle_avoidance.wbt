@@ -183,7 +183,7 @@ DEF diff_drive_complete Robot {
     }
     DEF diff_drive_wheel_top_left_hinge HingeJoint {
       jointParameters HingeJointParameters {
-        anchor -0.06 0 0.05
+        anchor 0.06 0 0.05
       }
       device [
         RotationalMotor {
@@ -232,7 +232,7 @@ DEF diff_drive_complete Robot {
     }
     DEF diff_drive_wheel_bottom_left_hinge HingeJoint {
       jointParameters HingeJointParameters {
-        anchor -0.06 0 0.05
+        anchor 0.06 0 -0.05
       }
       device [
         RotationalMotor {
@@ -252,7 +252,7 @@ DEF diff_drive_complete Robot {
     }
     DEF diff_drive_wheel_bottom_right_hinge HingeJoint {
       jointParameters HingeJointParameters {
-        anchor -0.06 0 0.05
+        anchor -0.06 0 -0.05
       }
       device [
         RotationalMotor {
