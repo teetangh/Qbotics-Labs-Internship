@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/kaustav/simulation_ws/src
-# Build directory: /home/kaustav/simulation_ws/build
+# Source directory: /home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/src
+# Build directory: /home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

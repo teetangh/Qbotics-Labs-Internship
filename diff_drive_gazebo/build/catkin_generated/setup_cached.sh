@@ -7,7 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/kaustav/simulation_ws/devel:$CMAKE_PREFIX_PATH"
-export PWD="/home/kaustav/simulation_ws/build"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/kaustav/simulation_ws/devel/share/common-lisp"
-export ROS_PACKAGE_PATH="/home/kaustav/simulation_ws/src:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/devel:$CMAKE_PREFIX_PATH"
+export PWD="/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/devel/share/common-lisp"
+export ROS_PACKAGE_PATH="/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/src:$ROS_PACKAGE_PATH"

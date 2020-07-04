@@ -1,4 +1,4 @@
-prefix=/home/kaustav/simulation_ws/devel
+prefix=/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/devel
 
 Name: m2wr_description
 Description: Description of m2wr_description

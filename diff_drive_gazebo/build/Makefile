@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kaustav/simulation_ws/src
+CMAKE_SOURCE_DIR = /home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kaustav/simulation_ws/build
+CMAKE_BINARY_DIR = /home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,9 +137,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kaustav/simulation_ws/build/CMakeFiles /home/kaustav/simulation_ws/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build/CMakeFiles /home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kaustav/simulation_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
