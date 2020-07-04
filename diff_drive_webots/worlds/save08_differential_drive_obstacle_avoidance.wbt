@@ -186,6 +186,7 @@ DEF diff_drive_complete Robot {
       }
       device [
         RotationalMotor {
+          name "diff_drive_wheel1_device"
         }
       ]
       endPoint Solid {
@@ -213,6 +214,7 @@ DEF diff_drive_complete Robot {
       }
       device [
         RotationalMotor {
+          name "diff_drive_wheel2_device"
         }
       ]
       endPoint Solid {
@@ -231,6 +233,7 @@ DEF diff_drive_complete Robot {
       }
       device [
         RotationalMotor {
+          name "diff_drive_wheel3_device"
         }
       ]
       endPoint Solid {
@@ -249,6 +252,7 @@ DEF diff_drive_complete Robot {
       }
       device [
         RotationalMotor {
+          name "diff_drive_wheel4_device"
         }
       ]
       endPoint Solid {
