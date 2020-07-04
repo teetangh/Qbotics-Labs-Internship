@@ -11,7 +11,7 @@
                 "/usr/include/**",
                 "/usr/local/webots/**"
             ],
-            "name": "ROS and Webots",
+            "name": "ROS Cartographer and Webots",
             "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "gnu11",
