@@ -10,8 +10,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.5376745487747584 0.7312748478655885 0.4196941463482908 1.6359887739352426
-  position 0.4066389233245775 0.8037781155676738 0.21660262773176298
+  orientation -0.49151880597076014 0.8467226932494877 0.20364170524087669 0.910120543917554
+  position 0.6802712287067415 0.7419851912407216 1.1606771233674686
 }
 TexturedBackground {
 }
@@ -183,6 +183,7 @@ DEF diff_drive_complete Robot {
     }
     DEF diff_drive_wheel_top_left_hinge HingeJoint {
       jointParameters HingeJointParameters {
+        anchor -0.06 0 0.05
       }
       device [
         RotationalMotor {
@@ -211,6 +212,7 @@ DEF diff_drive_complete Robot {
     }
     DEF diff_drive_wheel_top_right_hinge HingeJoint {
       jointParameters HingeJointParameters {
+        anchor -0.06 0 0.05
       }
       device [
         RotationalMotor {
@@ -230,6 +232,7 @@ DEF diff_drive_complete Robot {
     }
     DEF diff_drive_wheel_bottom_left_hinge HingeJoint {
       jointParameters HingeJointParameters {
+        anchor -0.06 0 0.05
       }
       device [
         RotationalMotor {
@@ -249,6 +252,7 @@ DEF diff_drive_complete Robot {
     }
     DEF diff_drive_wheel_bottom_right_hinge HingeJoint {
       jointParameters HingeJointParameters {
+        anchor -0.06 0 0.05
       }
       device [
         RotationalMotor {
