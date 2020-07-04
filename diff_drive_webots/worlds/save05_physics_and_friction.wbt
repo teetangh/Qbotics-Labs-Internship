@@ -1,16 +1,24 @@
 #VRML_SIM R2020a utf8
 WorldInfo {
+  contactProperties [
+    ContactProperties {
+      material2 "db_contact_material"
+      coulombFriction [
+        0
+      ]
+    }
+  ]
 }
 Viewpoint {
-  orientation -0.13322902046661655 0.9587805569087358 0.25097783129049533 2.200014663718559
-  position 1.553204458982063 0.9417616494657205 -0.7360056720694363
+  orientation -0.12377674053399142 0.9574046117545312 0.26087492768362447 2.288814824544364
+  position 1.4753693662005187 0.9647299471859034 -0.8068711691129516
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 E-puck {
-  translation 0.5469817521048038 -6.395623672259161e-05 0.1710340145771977
+  translation -0.83457 -6.39562e-05 0.0813582
   rotation 0.0005857829112655169 0.9999996978962195 0.0005109460349348584 -1.443990429826013
   controller "front_command"
 }
@@ -48,10 +56,13 @@ DEF Ball1_Solid Solid {
       }
       geometry Sphere {
         radius 0.12
-        subdivision 2
       }
     }
   ]
+  boundingObject USE Ball_
+  physics DEF Ball_Physics Physics {
+    mass 1
+  }
 }
 DEF Ball2_Solid Solid {
   translation 0.32 0.58 0.45
@@ -64,11 +75,12 @@ DEF Ball2_Solid Solid {
       }
       geometry Sphere {
         radius 0.12
-        subdivision 2
       }
     }
   ]
   name "solid(1)"
+  boundingObject USE Ball_
+  physics USE Ball_Physics
 }
 DEF Wall1_Solid Solid {
   translation 0 0.05 1
@@ -82,6 +94,9 @@ DEF Wall1_Solid Solid {
     }
   ]
   name "solid(2)"
+  boundingObject USE My_Wall
+  physics Physics {
+  }
 }
 DEF Wall2_Solid Solid {
   translation 0 0.05 -1
@@ -89,6 +104,9 @@ DEF Wall2_Solid Solid {
     USE My_Wall
   ]
   name "solid(3)"
+  boundingObject USE My_Wall
+  physics Physics {
+  }
 }
 DEF Wall3_Solid Solid {
   translation 1 0.05 0
@@ -97,6 +115,8 @@ DEF Wall3_Solid Solid {
     USE My_Wall
   ]
   name "solid(4)"
+  boundingObject USE My_Wall
+  physics USE Ball_Physics
 }
 DEF Wall4_Solid Solid {
   translation -1 0.05 0
@@ -105,11 +125,14 @@ DEF Wall4_Solid Solid {
     USE My_Wall
   ]
   name "solid(5)"
+  boundingObject USE My_Wall
+  physics Physics {
+  }
 }
 DEF Dumbell_Solid Solid {
   translation 0.36 0.2 0
   children [
-    Group {
+    DEF G0 Group {
       children [
         Transform {
           translation 0 0.05 0
@@ -142,4 +165,9 @@ DEF Dumbell_Solid Solid {
     }
   ]
   name "solid(6)"
+  contactMaterial "db_contact_material"
+  boundingObject USE G0
+  physics Physics {
+    mass 5
+  }
 }
