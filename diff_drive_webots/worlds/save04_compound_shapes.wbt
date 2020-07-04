@@ -1,0 +1,145 @@
+#VRML_SIM R2020a utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.11431869836768228 -0.9861777109986286 -0.11993647290555218 4.650537685548161
+  position 2.0527700228015067 0.7302047432899285 -0.06918092275321941
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+E-puck {
+  translation 0.5469817521048038 -6.395623672259161e-05 0.1710340145771977
+  rotation 0.0005857829112655169 0.9999996978962195 0.0005109460349348584 -1.443990429826013
+  controller "front_command"
+}
+WoodenBox {
+  translation -0.49 0.09960760004723951 0.439592
+  rotation 2.5586331082917745e-17 1 -8.54009802022934e-18 1.5700000000000003
+  size 0.2 0.2 0.2
+  mass 1
+}
+WoodenBox {
+  translation 0.52 0.09960760004723951 0.4404
+  rotation 8.531607275787535e-18 1 4.2615582656716175e-18 1.5700000000000003
+  name "wooden box(2)"
+  size 0.2 0.2 0.2
+  mass 1
+}
+WoodenBox {
+  translation 0.02053360508091258 0.09960760004723952 -0.21000003914808948
+  rotation 7.163220006040226e-18 0.9999999999999999 -1.0405115064512637e-17 1.5700270201583486
+  name "wooden box(1)"
+  size 0.2 0.2 0.2
+  mass 1
+}
+Floor {
+  size 2 2
+}
+DEF Ball1_Solid Solid {
+  translation 0 0.58 0
+  children [
+    DEF Ball_ Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 0
+        roughness 1
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.12
+        subdivision 2
+      }
+    }
+  ]
+}
+DEF Ball2_Solid Solid {
+  translation 0.32 0.58 0.45
+  children [
+    DEF Ball_ Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 0
+        roughness 1
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.12
+        subdivision 2
+      }
+    }
+  ]
+  name "solid(1)"
+}
+DEF Wall1_Solid Solid {
+  translation 0 0.05 1
+  children [
+    DEF My_Wall Shape {
+      appearance PBRAppearance {
+      }
+      geometry Box {
+        size 2 0.1 0.05
+      }
+    }
+  ]
+  name "solid(2)"
+}
+DEF Wall2_Solid Solid {
+  translation 0 0.05 -1
+  children [
+    USE My_Wall
+  ]
+  name "solid(3)"
+}
+DEF Wall3_Solid Solid {
+  translation 1 0.05 0
+  rotation 0 1 0 -1.57
+  children [
+    USE My_Wall
+  ]
+  name "solid(4)"
+}
+DEF Wall4_Solid Solid {
+  translation -1 0.05 0
+  rotation 0 1 0 -1.57
+  children [
+    USE My_Wall
+  ]
+  name "solid(5)"
+}
+DEF Dumbell_Solid Solid {
+  translation 0.36 0.2 0
+  children [
+    Group {
+      children [
+        Transform {
+          translation 0 0.05 0
+          children [
+            DEF Globe Shape {
+              appearance PBRAppearance {
+              }
+              geometry Sphere {
+                radius 0.04
+                subdivision 2
+              }
+            }
+          ]
+        }
+        Shape {
+          appearance PBRAppearance {
+          }
+          geometry Cylinder {
+            height 0.1
+            radius 0.01
+          }
+        }
+        Transform {
+          translation 0 -0.05 0
+          children [
+            USE Globe
+          ]
+        }
+      ]
+    }
+  ]
+  name "solid(6)"
+}
