@@ -1,0 +1,2 @@
+m2wr_description:m2wr_motion_planning:m2wr_worlds
+-DCATKIN_DEVEL_PREFIX=/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/devel -DCMAKE_INSTALL_PREFIX=/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/install -G Unix Makefiles
