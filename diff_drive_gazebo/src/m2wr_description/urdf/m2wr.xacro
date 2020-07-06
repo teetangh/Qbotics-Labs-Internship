@@ -5,6 +5,7 @@
     <xacro:include filename="$(find m2wr_description)/urdf/m2wr.gazebo"/>
     <xacro:include filename="$(find m2wr_description)/urdf/macros.xacro"/>
 
+    <!-- CHASSIS -->
     <link name="link_chassis">
         <!-- pose and inertial -->
         <pose>0 0 0.1 0 0 0</pose>
@@ -26,7 +27,7 @@
             </geometry>
             <material name="blue"/>
         </visual>
-        <!-- caster front -->
+        <!-- FRONT CASTER WHEEL -->
         <collision name="caster_front_collision">
             <origin rpy=" 0 0 0" xyz="0.35 0 -0.05"/>
             <geometry>
@@ -50,7 +51,7 @@
             </geometry>
         </visual>
     </link>
-
+    <!-- LAER SENSOR -->
     <link name="sensor_laser">
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0" />
@@ -80,6 +81,8 @@
         <child link="sensor_laser"/>
     </joint>
 
+
+    <!-- WHEELS -->
     <xacro:link_wheel name="link_right_wheel"/>
     <xacro:joint_wheel name="joint_right_wheel" child="link_right_wheel" origin_xyz="-0.05 0.15 0"/>
 
