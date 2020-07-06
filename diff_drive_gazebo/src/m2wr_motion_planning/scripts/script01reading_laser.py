@@ -1,14 +1,16 @@
+#! /usr/bin/env python
 import rospy
+from sensor_msgs.msg import LaserScan
 
-from sensor_msgs.msgs import LaserScan
-
-def clbk_laser(msgs):
-	rospy.loginfo(msgs)
+def clbk_laser(msg):
+    rospy.loginfo(msg)
 
 def main():
-	rospy.init('reading_laser')
-	sub = rospy.Subsriber('/m2wr/laser/scan',LaserScan,clbk_laser)
-	rospy.spin()
+    rospy.init_node('reading_laser')
 
+    sub = rospy.Subscriber('/m2wr/laser/scan',LaserScan,clbk_laser)
+
+    rospy.spin()
+    
 if __name__ == "__main__":
-	main()
+    main()

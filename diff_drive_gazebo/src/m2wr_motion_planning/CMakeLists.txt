@@ -8,6 +8,7 @@ project(m2wr_motion_planning)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  gazebo_msgs
   geometry_msgs
   rospy
   sensor_msgs
@@ -71,7 +72,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   geometry_msgs#   sensor_msgs#   std_msgs
+#   gazebo_msgs#   geometry_msgs#   sensor_msgs#   std_msgs
 # )
 
 ################################################
@@ -106,7 +107,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES m2wr_motion_planning
-#  CATKIN_DEPENDS geometry_msgs rospy sensor_msgs std_msgs
+#  CATKIN_DEPENDS gazebo_msgs geometry_msgs rospy sensor_msgs std_msgs
 #  DEPENDS system_lib
 )
 
