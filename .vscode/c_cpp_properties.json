@@ -6,12 +6,10 @@
                 "limitSymbolsToIncludedHeaders": true
             },
             "includePath": [
-                "/home/kaustav/catkin_ws/install_isolated/include/**",
                 "/opt/ros/melodic/include/**",
-                "/usr/include/**",
-                "/usr/local/webots/**"
+                "/usr/include/**"
             ],
-            "name": "ROS Cartographer and Webots",
+            "name": "ROS",
             "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "gnu11",
