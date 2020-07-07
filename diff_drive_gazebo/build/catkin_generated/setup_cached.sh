@@ -7,6 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export LD_LIBRARY_PATH="/home/kaustav/ROS_WORKSPACES/cartographer_ws/install_isolated/lib:/opt/ros/melodic/lib"
-export PKG_CONFIG_PATH="/home/kaustav/ROS_WORKSPACES/cartographer_ws/install_isolated/lib/pkgconfig:/opt/ros/melodic/lib/pkgconfig"
+export CMAKE_PREFIX_PATH="/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/devel:$CMAKE_PREFIX_PATH"
 export PWD="/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/devel/share/common-lisp"
+export ROS_PACKAGE_PATH="/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/src:$ROS_PACKAGE_PATH"
