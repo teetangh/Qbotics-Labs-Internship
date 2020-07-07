@@ -6,7 +6,7 @@
     <xacro:include filename="$(find m2wr_description)/urdf/macros.xacro"/>
 
     <!-- CHASSIS -->
-    <link name="base_link">
+    <link name="link_chassis">
         <!-- pose and inertial -->
         <pose>0 0 0.1 0 0 0</pose>
         <inertial>
@@ -77,7 +77,7 @@
 
     <joint name="joint_sensor_laser" type="fixed">
         <origin xyz="0.15 0 0.05" rpy="0 0 0"/>
-        <parent link="base_link"/>
+        <parent link="link_chassis"/>
         <child link="sensor_laser"/>
     </joint>
 
