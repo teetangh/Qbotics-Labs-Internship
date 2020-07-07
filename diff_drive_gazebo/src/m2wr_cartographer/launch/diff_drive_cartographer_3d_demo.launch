@@ -1,13 +1,9 @@
 <launch>
-
-
   <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" args="
           -configuration_directory $(find m2wr_cartographer)/config
-          -configuration_basename diff_drive_config_2d.lua" output="screen">
+          -configuration_basename diff_drive_config_3d.lua" output="screen">
     <remap from="scan" to="m2wr/laser/scan" />
   </node>
-  
-  <node name="rviz_carto" pkg="rviz" type="rviz" required="true" args="-d $(find cartographer_ros)/configuration_files/m2wr_carto_demo.rviz" />
-
+  <node name="rviz_carto" pkg="rviz" type="rviz" required="true" args="-d $(find cartographer_ros)/configuration_files/m2wr_carto3d_demo.rviz" />
   <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros" type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
 </launch>
