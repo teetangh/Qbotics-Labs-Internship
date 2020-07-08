@@ -132,9 +132,12 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build/gtest/cmake_install.cmake")
   include("/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build/m2wr_cartographer/cmake_install.cmake")
+  include("/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build/velodyne_simulator/velodyne_description/cmake_install.cmake")
+  include("/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build/velodyne_simulator/velodyne_simulator/cmake_install.cmake")
   include("/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build/m2wr_worlds/cmake_install.cmake")
   include("/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build/m2wr_motion_planning/cmake_install.cmake")
   include("/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build/m2wr_description/cmake_install.cmake")
+  include("/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build/velodyne_simulator/velodyne_gazebo_plugins/cmake_install.cmake")
 
 endif()
 
