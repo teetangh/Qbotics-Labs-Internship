@@ -92,13 +92,12 @@
 
 <!-- 
     LazDar Lidar
-    <!-- <xacro:include filename="$(find m2wr_description)/urdf/laz_rot_lidar.xacro"/> -->
+    <xacro:include filename="$(find m2wr_description)/urdf/laz_rot_lidar.xacro"/>
     <joint name="lidarGlue" type="fixed">
         <parent link="link_chassis"/>
         <child link="laz_base"/>
-        <!-- <origin xyz="0 0 ${body_height/2}"/> -->
         <origin xyz="-0.15 0 0.05" rpy="0 0 0"/>
-    </joint>
- -->
+    </joint> -->
+
 
 </robot>
