@@ -113,10 +113,15 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
+
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
 )
+# include_directories(
+#   ${GAZEBO_INCLUDE_DIRS})
+# )
+
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
@@ -202,3 +207,10 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+
+
+
+
+# add_library(laz_sensor_plugin plugins/PLUGINFILE.cc)
+# target_link_libraries(laz_sensor_plugin ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES} ${roscpp_LIBRARIES} RayPlugin)

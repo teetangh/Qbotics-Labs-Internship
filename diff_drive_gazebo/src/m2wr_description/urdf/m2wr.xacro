@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <robot name="m2wr" 
     xmlns:xacro="https://www.ros.org/wiki/xacro">
+    <xacro:include filename="$(find m2wr_description)/urdf/laz_rot_lidar.xacro"/>
     <xacro:include filename="$(find m2wr_description)/urdf/materials.xacro"/>
     <xacro:include filename="$(find m2wr_description)/urdf/m2wr.gazebo"/>
     <xacro:include filename="$(find m2wr_description)/urdf/macros.xacro"/>
@@ -88,5 +89,16 @@
 
     <xacro:link_wheel name="link_left_wheel"/>
     <xacro:joint_wheel name="joint_left_wheel" child="link_left_wheel" origin_xyz="-0.05 -0.15 0"/>
+
+<!-- 
+    LazDar Lidar
+    <!-- <xacro:include filename="$(find m2wr_description)/urdf/laz_rot_lidar.xacro"/> -->
+    <joint name="lidarGlue" type="fixed">
+        <parent link="link_chassis"/>
+        <child link="laz_base"/>
+        <!-- <origin xyz="0 0 ${body_height/2}"/> -->
+        <origin xyz="-0.15 0 0.05" rpy="0 0 0"/>
+    </joint>
+ -->
 
 </robot>

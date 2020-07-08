@@ -10,6 +10,7 @@
         <material>Gazebo/Blue</material>
     </gazebo>
 
+    <!-- Differential drive controller -->
     <gazebo>
         <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
             <legacyMode>false</legacyMode>
@@ -26,7 +27,7 @@
             <robotBaseFrame>link_chassis</robotBaseFrame>
         </plugin>
     </gazebo>
-
+    <!-- Laser Scanner -->
     <gazebo reference="sensor_laser">
         <sensor type="ray" name="head_hokuyo_sensor">
             <pose>0 0 0 0 0 0</pose>
@@ -60,4 +61,39 @@
         </sensor>
     </gazebo>
 
+
+
+    <!-- Lazdar Lidar Scanner
+    <sensor type="ray" name="laz">
+        <always_on>true</always_on>
+        <pose>${laz_radius} 0 ${laz_height/4} ${pi/2} 0 0</pose>
+        <visualize>true</visualize>
+        <update_rate>30</update_rate>
+        <ray>
+            <scan>
+                <horizontal>
+                    <samples>15</samples>
+                    <resolution>1</resolution>
+                    <min_angle>-${pi/8}</min_angle>
+                    <max_angle>${pi/8}</max_angle>
+                </horizontal>
+                <vertical>
+                    <samples>1</samples>
+                    <resolution>1</resolution>
+                    <min_angle>-0.15</min_angle>
+                    <max_angle>0.15</max_angle>
+                </vertical>
+            </scan>
+            <range>
+                <min>0.05</min>
+                <max>15</max>
+                <resolution>0.02</resolution>
+            </range>
+            <noise>
+                <type>gaussian</type>
+                <mean>0.0</mean>
+                <stddev>1.0</stddev>
+            </noise>
+        </ray>
+    </sensor> -->
 </robot> 
