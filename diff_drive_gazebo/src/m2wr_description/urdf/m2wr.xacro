@@ -100,7 +100,7 @@
     </joint> -->
 
     <!-- Hokuyo Laser -->
-
+<!-- 
     <link name="hokuyo_link">
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -128,6 +128,6 @@
         <origin xyz="0 0 ${height3 - axel_offset/2}" rpy="0 0 0"/>
         <parent link="link3"/>
         <child link="hokuyo_link"/>
-    </joint>
+    </joint> -->
 
 </robot>
