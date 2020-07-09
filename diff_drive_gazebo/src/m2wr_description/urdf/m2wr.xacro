@@ -99,7 +99,7 @@
         <origin xyz="-0.15 0 0.05" rpy="0 0 0"/>
     </joint> -->
 
-    <!-- Hokuyo Laser -->
+    <!-- Hokuyo Lidar-->
 <!-- 
     <link name="hokuyo_link">
         <collision>
@@ -129,5 +129,10 @@
         <parent link="link3"/>
         <child link="hokuyo_link"/>
     </joint> -->
+
+    <!-- Veloddyne Lidar -->
+    <!-- includes the plugin as well -->
+    <xacro:include filename="$(find velodyne_description)/urdf/VLP-16.urdf.xacro"/>
+
 
 </robot>
