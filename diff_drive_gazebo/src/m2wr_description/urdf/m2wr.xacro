@@ -100,7 +100,7 @@
     </joint> -->
 
     <!-- Hokuyo Lidar-->
-<!-- 
+    <!-- 
     <link name="hokuyo_link">
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -131,8 +131,13 @@
     </joint> -->
 
     <!-- Veloddyne Lidar -->
-    <!-- includes the plugin as well -->
+    <!-- Joint -->
     <xacro:include filename="$(find velodyne_description)/urdf/VLP-16.urdf.xacro"/>
+    <VLP-16 parent="link_chassis" name="velodyne" topic="/velodyne_points" hz="10" samples="440" gpu="${gpu}">
+        <origin xyz="0 0 0.4" rpy="0 0 0" />
+    </VLP-16>
+    <!-- includes the urdf and the plugin as well -->
+    <xacro:include filename="$(find velodyne_description)/urdf/example.urdf.xacro"/>
 
 
 </robot>

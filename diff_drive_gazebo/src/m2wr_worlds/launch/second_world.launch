@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- Decalring all the required parameters -->
+    <arg name="paused" default="false" />
+    <arg name="use_sim_time" default="true" />
+    <arg name="gui" default="true" />
+    <arg name="robot" default="machines" />
+    <arg name="debug" default="false" />
+    <arg name="headless" default="false" />
+    <arg name="paused" default="false" />
+    <arg name="verbose" default="false" />
+    <!-- Choosing the World -->
+    <arg name="world_name_used" default="$(find m2wr_worlds)/worlds/$(arg world_used).world"/>
+
+    <!-- Paasing all the parameters into Gazebo -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name= "world_name" value="$(arg world_name_used)" />
+        <arg name= "use_sim_time" value="$(arg use_sim_time)" />
+        <arg name="gui" value="$(arg gui)" />
+        <arg name="paused" value="$(arg paused)" />
+        <arg name="headless" value="$(arg headless)" />
+        <arg name="verbose" value="$(arg verbose)" />
+    </include>
+
+
+    <!-- Spawning the robot -->
+    <arg name="gpu" default="false" />
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find m2r_worlds)/urdf/m2wr.xacro' gpu:=$(arg gpu)" />
+
+    
+    <node pkg="gazebo_ros" type="spawn_model" name="-urdf -param / robot_description -model experimental_name" />
+
+    <!-- Robot state -->
+
+
+</launch>
