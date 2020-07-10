@@ -9,6 +9,15 @@
     <gazebo reference="link_right_wheel">
         <material>Gazebo/Blue</material>
     </gazebo>
+    <gazebo reference="sensor_laser">
+        <material>Gazebo/Red</material>
+    </gazebo>
+    <gazebo reference="base_link">
+        <material>Gazebo/Black</material>
+    </gazebo>
+    <gazebo reference="imu_sensor">
+        <material>Gazebo/Grey</material>
+    </gazebo>
 
     <!-- Differential drive controller -->
     <gazebo>
