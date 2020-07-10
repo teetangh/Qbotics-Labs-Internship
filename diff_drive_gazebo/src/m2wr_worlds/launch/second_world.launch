@@ -8,10 +8,9 @@
     <arg name="robot" default="machines" />
     <arg name="debug" default="false" />
     <arg name="headless" default="false" />
-    <arg name="paused" default="false" />
     <arg name="verbose" default="false" />
     <!-- Choosing the World -->
-    <arg name="world_name_used" default="$(find m2wr_worlds)/worlds/$(arg world_used).world"/>
+    <arg name="world_name_used" default="$(find m2wr_worlds)/worlds/world01.world"/>
 
     <!-- Paasing all the parameters into Gazebo -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -25,21 +24,27 @@
 
 
     <!-- Spawning the robot -->
-    <arg name="gpu" default="false" />
-    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find m2r_worlds)/urdf/m2wr.xacro' gpu:=$(arg gpu)" />
+    <arg name="gpu_used" default="false"/>
+    <param name="robot_description" command="$(find xacro)/xacro.py '$(find m2wr_description)/urdf/m2wr.xacro' gpu:=$(arg gpu_used)"/>
 
-    
-    <node pkg="gazebo_ros" type="spawn_model" name="-urdf -param / robot_description -model m2wr" />
+    <arg name="x" default="0"/>
+    <arg name="y" default="0"/>
+    <arg name="z" default="0.5"/>
+
+    <!-- Differential Drive Robot -->
+    <node name="m2wr_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model m2wr -x $(arg x) -y $(arg y) -z $(arg z)" />
+
+    <!-- <node pkg="gazebo_ros" type="spawn_model" name="-urdf -param / robot_description -model m2wr" /> -->
 
     <!-- Robot state Publisher-->
     <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
-        <param name="punlish_frequency" type="double" value="30">
+        <param name="publish_frequency" type="double" value="30" />
     </node>
 
 
 
-  <!-- RViz -->
-  <!-- <arg name="rviz" default="true"/>
+    <!-- RViz -->
+    <!-- <arg name="rviz" default="true"/>
   <node if="$(arg rviz)" pkg="rviz" type="rviz" name="$(anon rviz)" respawn="false" output="screen" args="-d $(find velodyne_description)/rviz/example.rviz" /> -->
 
 
