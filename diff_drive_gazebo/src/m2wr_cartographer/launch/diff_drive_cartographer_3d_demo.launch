@@ -1,9 +1,28 @@
 <launch>
+
+  <!-- Cartographer Node -->
   <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" args="
           -configuration_directory $(find m2wr_cartographer)/config
           -configuration_basename diff_drive_config_3d.lua" output="screen">
     <remap from="scan" to="m2wr/laser/scan" />
   </node>
-  <node name="rviz_carto" pkg="rviz" type="rviz" required="true" args="-d $(find cartographer_ros)/configuration_files/m2wr_carto3d_demo.rviz" />
+
+  <!-- send fake joint values -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="False"/>
+  </node>
+
+  <!-- Combine joint values -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
+
+
+  <!-- Default Rviz Configuration -->
+  <!-- <node name="rviz_carto" pkg="rviz" type="rviz" required="true" args="-d $(find cartographer_ros)/configuration_files/m2wr_carto3d_demo.rviz" /> -->
+
+  <!-- Modified Rviz Configuration -->
+  <node name="rviz_carto" pkg="rviz" type="rviz" required="true" args="-d $(find m2wr_description)/rviz_configurations/state05_lidar_laser_scanner_imu.rviz" />
+
+
+  <!-- Cartographer Occupancy Grid Node -->
   <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros" type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
 </launch>
