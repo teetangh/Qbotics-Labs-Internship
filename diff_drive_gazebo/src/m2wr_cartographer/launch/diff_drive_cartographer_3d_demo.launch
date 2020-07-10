@@ -4,8 +4,13 @@
   <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" args="  -configuration_directory $(find m2wr_cartographer)/config
           -configuration_basename diff_drive_config_3d.lua" output="screen">
     <!-- More Remaps than 2d -->
-    <remap from="scan" to="m2wr/laser/scan" />
-    <remap from="points2" to="velodyne/points" />
+    <!-- <remap from="scan" to="m2wr/laser/scan" /> -->
+    <!-- <remap from="points2" to="velodyne/points" /> -->
+
+    <remap from="points2_1" to="velodyne/points" />
+
+    <!-- <remap from="points2_1" to="horizontal_laser_3d" />
+    <remap from="points2_2" to="vertical_laser_3d" /> -->
     <remap from="imu" to="imu_topic" />
   </node>
 
