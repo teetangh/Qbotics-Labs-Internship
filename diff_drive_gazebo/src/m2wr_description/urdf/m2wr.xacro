@@ -1,11 +1,15 @@
 <?xml version="1.0" ?>
 <robot name="m2wr" 
     xmlns:xacro="https://www.ros.org/wiki/xacro">
+
+    <!-- /////////////////////////////////////// Importing Urdf/Xacro Dependencies for the robot /////////////////////////////////////////////-->
+
     <!-- <xacro:include filename="$(find m2wr_description)/urdf/lidar_lazrot.xacro"/> -->
     <xacro:include filename="$(find m2wr_description)/urdf/materials.xacro"/>
     <xacro:include filename="$(find m2wr_description)/urdf/m2wr.gazebo"/>
     <xacro:include filename="$(find m2wr_description)/urdf/macros.xacro"/>
 
+    <!-- /////////////////////////////////////// Main Body /////////////////////////////////////////////-->
     <!-- CHASSIS -->
     <link name="link_chassis">
         <!-- pose and inertial -->
@@ -134,7 +138,7 @@
     <!-- /////////////////////////////////////// Veloddyne Lidar /////////////////////////////////////////////-->
 
     <xacro:property name="VLP_16_base_radius" value="0.05"/>
-    <xacro:property name="VLP_16_base_height" value="0.05"/>
+    <xacro:property name="VLP_16_base_height" value="0.5"/>
 
 
     <!-- Constructing a fake base_link -->
@@ -151,6 +155,7 @@
             <inertia ixx="${(1/12) * 0.1 * (3 * VLP_16_base_radius * VLP_16_base_radius + VLP_16_base_height * VLP_16_base_height)}" ixy="0" ixz="0" iyy="${(1/12) * 0.1 * (3 * VLP_16_base_radius * VLP_16_base_radius + VLP_16_base_height * VLP_16_base_height)}" iyz="0" izz="${(1/2) * 0.1 * VLP_16_base_radius * VLP_16_base_radius}"/>
         </inertial>
         <visual>
+            <origin xyz="0.0 0.0 0.20" rpy="0.0 0.0 0.0"/>
             <geometry>
                 <cylinder radius="${VLP_16_base_radius}" length="${VLP_16_base_height}"/>
             </geometry>
@@ -160,6 +165,7 @@
             </material> -->
         </visual>
         <collision>
+            <origin xyz="0.0 0.0 0.20" rpy="0.0 0.0 0.0"/>
             <geometry>
                 <cylinder radius="${VLP_16_base_radius}" length="${VLP_16_base_height}"/>
             </geometry>
@@ -174,4 +180,57 @@
         <origin xyz="0 0 0.4" rpy="0 0 0" />
     </VLP-16>
 
+    <!-- /////////////////////////////////////// Inertial Measurement Unit /////////////////////////////////////////////-->
+
+    <!-- joint between the link_chassis and the IMU -->
+    <joint name="link_chassis_IMU_joint" type="fixed">
+        <parent link="link_chassis"/>
+        <child link="imu_sensor"/>
+        <origin xyz="0.0 0.0 0.05" rpy="0.0 0.0 0.0"/>
+        <!-- <axis xyz="0.0 0.0 0.0"/>
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/> -->
+    </joint>
+
+    <!-- IMU Sensor Link -->
+    <xacro:property name="imu_height" value="0.05"/>
+    <xacro:property name="imu_width" value="0.05"/>
+
+    <link name="imu_sensor">
+        <inertial>
+            <origin xyz="0.0 0.0 1" rpy="0.0 0.0 0.0"/>
+            <mass value="1.0"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+
+        <visual>
+            <!-- <origin xyz="0.0 0.0 ${imu_height}" rpy="0.0 0.0 0.0"/> -->
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="${imu_width} ${imu_width} ${imu_height}"/>
+            </geometry>
+            <!-- <material>
+                <color rgba="28 152 230 1.0"/>
+                <texture filename=""/>
+            </material> -->
+        </visual>
+
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="${imu_width} ${imu_width} ${imu_height}"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <!-- ROS Built-in Gazebo IMU Plugin Reference -->
+    <gazebo>
+        <plugin name="imu_plugin" filename="libgazebo_ros_imu.so">
+            <alwaysOn>true</alwaysOn>
+            <bodyName>imu_sensor</bodyName>
+            <topicName>imu_topic</topicName>
+            <serviceName>imu_service</serviceName>
+            <gaussianNoise>0.0</gaussianNoise>
+            <updateRate>20</updateRate>
+        </plugin>
+    </gazebo>
 </robot>
