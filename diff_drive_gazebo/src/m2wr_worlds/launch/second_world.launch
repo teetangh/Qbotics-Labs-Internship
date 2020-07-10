@@ -29,9 +29,19 @@
     <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find m2r_worlds)/urdf/m2wr.xacro' gpu:=$(arg gpu)" />
 
     
-    <node pkg="gazebo_ros" type="spawn_model" name="-urdf -param / robot_description -model experimental_name" />
+    <node pkg="gazebo_ros" type="spawn_model" name="-urdf -param / robot_description -model m2wr" />
 
-    <!-- Robot state -->
+    <!-- Robot state Publisher-->
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+        <param name="punlish_frequency" type="double" value="30">
+    </node>
+
+
+
+  <!-- RViz -->
+  <!-- <arg name="rviz" default="true"/>
+  <node if="$(arg rviz)" pkg="rviz" type="rviz" name="$(anon rviz)" respawn="false" output="screen" args="-d $(find velodyne_description)/rviz/example.rviz" /> -->
+
 
 
 </launch>
