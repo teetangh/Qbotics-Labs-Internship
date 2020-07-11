@@ -40,8 +40,7 @@
                  izz ="${mass*(3*r*r+l*l)/12}" />
     </macro>
 
-    <!-- LASER SENSOR GAZEBO PLUGIN -->
-    <gazebo reference="sensor_laser">
+    <!-- LASER SENSOR GAZEBO PLUGIN -->+    <!-- <gazebo reference="sensor_laser">
         <sensor type="ray" name="head_hokuyo_sensor">
             <pose>0 0 0 0 0 0</pose>
             <visualize>false</visualize>
@@ -71,6 +70,6 @@
                 <frameName>sensor_laser</frameName>
             </plugin>
         </sensor>
-    </gazebo>
+    </gazebo> -->
 
 </robot>

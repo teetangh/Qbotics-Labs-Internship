@@ -2,6 +2,8 @@ In the   previous section of the documentation we had constructed the model of o
 
 In this Section of the documentation you will learn how to create a simple laser scanner as well as customising the gazebo plugin for the laser scanner so that it can interact with the environment.
 
+
+## Laser Scanner URDF snippet
 Now use the following code snippet for the laser scanner and include it in your URDF file  just after the wheel link and joint macros and therefore the ending \<robot> tag.
 
      <!-- /////////////////////////////////////// Laser Scanner /////////////////////////////////////////////-->
@@ -32,4 +34,12 @@ Now use the following code snippet for the laser scanner and include it in your 
         <parent link="link_chassis"/>
         <child link="sensor_laser"/>
     </joint>
+
+## Explanation
+
+In the above code sample,The  sensor_laser is the scanner in the form of a cylinder and  we are giving it appropriate radius and height and as usual giving it similar visual and  collision parameters. We are also setting the mass to be one unit.  Since the  laser scanner is mounted on the chassis link of the differential drive,  the parent link is obviously the chassis of the differential drive  and child link is the sensor itself
+
+## Developing the code for the Laser Sensor Gazebo plugin
+
+
 
