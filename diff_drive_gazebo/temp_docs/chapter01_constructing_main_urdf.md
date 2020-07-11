@@ -27,6 +27,7 @@ Once inside create two folders namely launch and urdf
 
 ## Constructing the main skeleton urdf
 
+### Chassis Link for the Differential Drive
 inside the urdf folder we shall make the components of the differential drive.Make a file called "m2wr.xacro" inside the urdf folder and in the xacro file paste the following code:
 
     <?xml version="1.0" ?>
@@ -88,7 +89,14 @@ inside the urdf folder we shall make the components of the differential drive.Ma
         </link>
     </robot>
 
-### Explaination
+ the folder hierarchy should be as  per the diagram given below:
+
+    diff_drive_gazebo:
+        m2wr_description
+            urdf
+                m2wr.xacro
+
+### Explaination for the above snippet
 
 Now let us look at the explanation for the above code snippet. here we are creating a link for the  chassis  part of our differential drive which consists of the following components ,i.e. :inertial 
 collision and visual components.
@@ -97,83 +105,74 @@ collision and visual components.
 
  As you can see in the above code snippet we have constructed the  chassis link,  given it inertial, visual and collision parameters as well as constructed a front caster wheel to help the differential drive maintain its balance. We have defined the sphere radius of the front caster wheel as well as the coefficient of friction and slip as required. You can set them to your desired values.
 
+### The Wheel joints for the differential drive.
 
-## Rviz Visualization
-
-### Install Related Dependencies
-Before we can visualize our robot through Rviz we need to install the MoveIt!,a motion planning framework for robotics applications and other relevant ROS and catkin libraries
-This can be done through the following commands
-
-    rosdep update
-    sudo apt-get update
-    sudo apt-get dist-upgrade
-    sudo apt-get install ros-melodic-catkin python-catkin-tools
-    
-### Creating the launch file to visualize the temporary model.
-Inside the launch folder create a launch file used to launch the diff_drive and name it "rviz.launch".Now,paste the code from the repository link
-
-### Acutally visualizing the model.
-Now we can visualize the model using the given command:
-
-    roslaunch m2wr_description rviz.launch 
-
-Now Rviz pops up and given the fact that we installed MoveIt.Select Transform model.Click the Add button and select the Robot State from the menu and the diff_drive will be visible on Rviz.
-
-## Simulating the model in Gazebo
-For this you need to have Gazebo installed on your system.Follow the link to install Gazebo depending upon your current system configuration
-
-    http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install
-
-### Gazebo Code snippet already in the m2wr.xacro
-
-    <gazebo reference="link_chassis">
-        <material>Gazebo/Orange</material>
-    </gazebo>
-    <gazebo reference="link_left_wheel">
-        <material>Gazebo/Blue</material>
-    </gazebo>
-    <gazebo reference="link_right_wheel">
-        <material>Gazebo/Blue</material>
-    </gazebo>
-    
-    <gazebo>
-        <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
-        <legacyMode>false</legacyMode>
-        <alwaysOn>true</alwaysOn>
-        <updateRate>20</updateRate>
-        <leftJoint>joint_left_wheel</leftJoint>
-        <rightJoint>joint_right_wheel</rightJoint>
-        <wheelSeparation>0.2</wheelSeparation>
-        <wheelDiameter>0.2</wheelDiameter>
-        <torque>0.1</torque>
-        <commandTopic>cmd_vel</commandTopic>
-        <odometryTopic>odom</odometryTopic>
-        <odometryFrame>odom</odometryFrame>
-        <robotBaseFrame>link_chassis</robotBaseFrame>
-        </plugin>
-    </gazebo>
-
-### Spawning the model
-Inside the launch folder create another launch file called "spawn.launch" and paste the code from the repository.
-
-### Launching Gazebo in the right order
-Now if we launched gazebo and spawned the model,the model wouldn't load.That is probably because the gazebo isn't interfaced with the ROS ecosystem.The right way to do it would be to 
-
-    roslaunch gazebo_ros empty_world.launch
-    roslaunch m2wr_description spawn.launch 
-
-### Installing the teleop_twist_keyboard to control the differential drive
-We can also install the Teleop_twist keyboard and control the differential drive robot using the keyboard commands through a terminal
-    
-    sudo apt-get install ros-melodic-teleop-twist-keyboard 
-    rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+Now when constructing URDFs via XML code, it is strongly advised to clean up the code using the package which can help you  modularise your code. Using the XACRO package, you can define macros, simple constants, properties,simple math and include files.
 
 
-okay
+Here we shall not write the xml code for the wheel  links and joints rather include it via a XACRO file  as demonstrated below:
+Please attach this code just above the ending tag of the \<robot>.
+
+    <!-- WHEELS -->
+    <xacro:link_wheel name="link_right_wheel"/>
+    <xacro:joint_wheel name="joint_right_wheel" child="link_right_wheel" origin_xyz="-0.05 0.15 0"/>
+
+    <xacro:link_wheel name="link_left_wheel"/>
+    <xacro:joint_wheel name="joint_left_wheel" child="link_left_wheel" origin_xyz="-0.05 -0.15 0"/>
 
 
-## References:
-    Robot Ignite Academy(The Construct)
-    https://www.theconstructsim.com/
-    wiki.ros.org
-    other youtube channels
+
+  Let's create a XACRO file ( call it macros.xacro)  for defining macros  for  the wheel  links and wheel joints.Your again we define the wheel inertial collision and visual properties as per the  our choice. You can set them to your own desired values. Also in the  macro of the wheel  joint between the parent link to be the link chassis  since all the components are going to be attached to this and the child link or to be an arbitrary argument ${child}  show that  our desired  child component can be attached to this macro. Also we set the damping and friction parameters as per the common law of Physics. 
+
+		<?xml version="1.0"?>
+        <robot>
+            <!-- LINK_WHEEL MACRO -->
+            <macro name="link_wheel" params="name">
+                <link name="${name}">
+                    <inertial>
+                        <mass value="0.2"/>
+                        <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+                        <inertia ixx="0.000526666666667" ixy="0" ixz="0" iyy="0.000526666666667" iyz="0" izz="0.001"/>
+                    </inertial>
+                    <collision name="${name}_collision">
+                        <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+                        <geometry>
+                            <cylinder length="0.04" radius="0.1"/>
+                        </geometry>
+                    </collision>
+                    <visual name="${name}_visual">
+                        <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+                        <geometry>
+                            <cylinder length="0.04" radius="0.1"/>
+                        </geometry>
+                    </visual>
+                </link>
+            </macro>
+            <!-- JOINT_WHEEL MACRO -->
+            <macro name="joint_wheel" params="name child origin_xyz">
+                <joint name="${name}" type="continuous">
+                    <origin rpy="0 0 0" xyz="${origin_xyz}"/>
+                    <child link="${child}"/>
+                    <parent link="link_chassis"/>
+                    <axis rpy="0 0 0" xyz="0 1 0"/>
+                    <limit effort="10000" velocity="1000"/>
+                    <joint_properties damping="1.0" friction="1.0"/>
+                </joint>
+        </macro>
+
+        <macro name="cylinder_inertia" params="mass r l">
+            <inertia ixx ="${mass*(3*r*r+l*l)/12}" ixy = "0" ixz="0"
+                    iyy ="${mass*(3*r*r+l*l)/12}" iyz="0"
+                    izz ="${mass*(3*r*r+l*l)/12}" />
+        </macro>
+    </robot>
+
+ the folder hierarchy should be as  per the diagram given below:
+
+    diff_drive_gazebo:
+        m2wr_description
+            urdf
+                m2wr.xacro
+                macros.xacro
+
+ this is our recommended folder hierarchy but you can  create your own folder hierarchy. it is strongly recommended that you maintain and all small case naming separated by underscores. also remember to create  create the package using catkin_create_package command  followed by the name and the dependencies of the package  rather than just creating a simple folder.
