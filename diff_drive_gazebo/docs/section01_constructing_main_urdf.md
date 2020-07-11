@@ -92,9 +92,10 @@ inside the urdf folder we shall make the components of the differential drive.Ma
  the folder hierarchy should be as  per the diagram given below:
 
     diff_drive_gazebo:
-        m2wr_description
-            urdf
-                m2wr.xacro
+        src:
+            m2wr_description
+                urdf
+                    m2wr.xacro
 
 ### Explaination for the above snippet
 
@@ -170,10 +171,11 @@ Please attach this code just above the ending tag of the \<robot>.
  the folder hierarchy should be as  per the diagram given below:
 
     diff_drive_gazebo:
-        m2wr_description
-            urdf
-                m2wr.xacro
-                macros.xacro
+        src
+            m2wr_description
+                urdf
+                    m2wr.xacro
+                    macros.xacro
 
  this is our recommended folder hierarchy but you can  create your own folder hierarchy. it is strongly recommended that you maintain and all small case naming separated by underscores. also remember to create  create the package using catkin_create_package command  followed by the name and the dependencies of the package  rather than just creating a simple folder.
 
