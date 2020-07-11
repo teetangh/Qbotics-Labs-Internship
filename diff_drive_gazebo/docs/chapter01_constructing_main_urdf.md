@@ -122,7 +122,7 @@ Please attach this code just above the ending tag of the \<robot>.
 
 
 
-  Let's create a XACRO file ( call it macros.xacro)  for defining macros  for  the wheel  links and wheel joints.Your again we define the wheel inertial collision and visual properties as per the  our choice. You can set them to your own desired values. Also in the  macro of the wheel  joint between the parent link to be the link chassis  since all the components are going to be attached to this and the child link or to be an arbitrary argument ${child}  show that  our desired  child component can be attached to this macro. Also we set the damping and friction parameters as per the common law of Physics. 
+  Let's create a XACRO file ( call it macros.xacro)  for defining macros  for  the wheel  links and wheel joints.Your again we define the wheel inertial collision and visual properties as per the  our choice. You can set them to your own desired values. Also in the  macro of the wheel  joint between the parent link to be the link chassis  since all the components are going to be attached to this and the child link or to be an arbitrary argument ${child}  show that  our desired  child component can be attached to this macro. We set the inertial matrix of the wheel joint as  rotational physics principles.Also we set the damping and friction parameters as per the common law of Physics. 
 
 		<?xml version="1.0"?>
         <robot>
@@ -176,3 +176,5 @@ Please attach this code just above the ending tag of the \<robot>.
                 macros.xacro
 
  this is our recommended folder hierarchy but you can  create your own folder hierarchy. it is strongly recommended that you maintain and all small case naming separated by underscores. also remember to create  create the package using catkin_create_package command  followed by the name and the dependencies of the package  rather than just creating a simple folder.
+
+In the next section of the documentation we shall see how to construct the URDF model of the laser scanner and attach it to the main chassis of the differential drive. 
