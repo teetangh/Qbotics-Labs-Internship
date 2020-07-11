@@ -1,8 +1,4 @@
- in the section of the documentation we shall be constructing in the URDF/XACRO model for Velodyne VLP-16 lidar. The meshes/collada dae files/gazebo files are bundled into a nice little package and is available as a GIT repository.  The reference to the same has been given below:
-
-https://github.com/lmark1/velodyne_simulator
-
-Redirect yourself to the src folder and git clone the above package. 
+ in the section of the documentation we shall be constructing in the URDF/XACRO model for an inertial measurement unit.Although there are meshes,urdfs and xacros available for IMUs online we shall make our very own imu from scratch and use a readily available gazebo plugin to implement its functionality
 
 Now open the m2wr.xacro file and append the following code snippet just before the closing \<robot> tag
 
