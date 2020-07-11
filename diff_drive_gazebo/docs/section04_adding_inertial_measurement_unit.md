@@ -51,9 +51,6 @@ Now open the m2wr.xacro file and append the following code snippet just before t
 
 ### Explanation
 
-
-
-
 Add the snippet just after the <\link> tag and before the \ <robot>
 
 
