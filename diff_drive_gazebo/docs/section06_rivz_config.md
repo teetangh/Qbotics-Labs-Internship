@@ -36,22 +36,6 @@ For this you need to have Gazebo installed on your system.Follow the link to ins
         <material>Gazebo/Blue</material>
     </gazebo>
     
-    <gazebo>
-        <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
-        <legacyMode>false</legacyMode>
-        <alwaysOn>true</alwaysOn>
-        <updateRate>20</updateRate>
-        <leftJoint>joint_left_wheel</leftJoint>
-        <rightJoint>joint_right_wheel</rightJoint>
-        <wheelSeparation>0.2</wheelSeparation>
-        <wheelDiameter>0.2</wheelDiameter>
-        <torque>0.1</torque>
-        <commandTopic>cmd_vel</commandTopic>
-        <odometryTopic>odom</odometryTopic>
-        <odometryFrame>odom</odometryFrame>
-        <robotBaseFrame>link_chassis</robotBaseFrame>
-        </plugin>
-    </gazebo>
 
 ### Spawning the model
 Inside the launch folder create another launch file called "spawn.launch" and paste the code from the repository.
