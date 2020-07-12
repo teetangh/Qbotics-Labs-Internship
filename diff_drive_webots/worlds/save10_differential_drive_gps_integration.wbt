@@ -1,0 +1,340 @@
+#VRML_SIM R2020a utf8
+WorldInfo {
+  contactProperties [
+    ContactProperties {
+      material2 "db_contact_material"
+      coulombFriction [
+        0
+      ]
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.06944542741582502 0.9556380673484053 0.28623978906790365 2.6859432038490882
+  position 0.4573452131253889 0.9857312858660058 -0.9702814480579874
+  follow "robot"
+  followType "Mounted Shot"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+E-puck {
+  translation -0.83457 -6.39562e-05 0.0813582
+  rotation 0.0005857829112655169 0.9999996978962195 0.0005109460349348584 -1.443990429826013
+  controller "front_command"
+}
+WoodenBox {
+  translation 0.00734598 0.0996076 0.850764
+  rotation 2.5586331082917745e-17 1 -8.54009802022934e-18 1.5700000000000003
+  size 0.2 0.2 0.2
+  mass 1
+}
+WoodenBox {
+  translation 0.71412 0.0996076 0.209649
+  rotation 8.531607275787535e-18 1 4.2615582656716175e-18 1.5700000000000003
+  name "wooden box(2)"
+  size 0.2 0.2 0.2
+  mass 1
+}
+WoodenBox {
+  translation -0.417283 0.0996076 -0.505366
+  rotation 7.163220006040226e-18 0.9999999999999999 -1.0405115064512637e-17 1.5700270201583486
+  name "wooden box(1)"
+  size 0.2 0.2 0.2
+  mass 1
+}
+Floor {
+  size 2 2
+}
+DEF Ball1_Solid Solid {
+  translation -0.264936 0.58 -0.34817
+  children [
+    DEF Ball_ Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 0
+        roughness 1
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.12
+      }
+    }
+  ]
+  boundingObject USE Ball_
+  physics DEF Ball_Physics Physics {
+    mass 1
+  }
+}
+DEF Ball2_Solid Solid {
+  translation 0.596454 0.58 0.358742
+  children [
+    DEF Ball_ Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 0
+        roughness 1
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.12
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE Ball_
+  physics USE Ball_Physics
+}
+DEF Wall1_Solid Solid {
+  translation 0 0.05 1
+  children [
+    DEF My_Wall Shape {
+      appearance PBRAppearance {
+      }
+      geometry Box {
+        size 2 0.1 0.05
+      }
+    }
+  ]
+  name "solid(2)"
+  boundingObject USE My_Wall
+  physics Physics {
+  }
+}
+DEF Wall2_Solid Solid {
+  translation 0 0.05 -1
+  children [
+    USE My_Wall
+  ]
+  name "solid(3)"
+  boundingObject USE My_Wall
+  physics Physics {
+  }
+}
+DEF Wall3_Solid Solid {
+  translation 1 0.05 0
+  rotation 0 1 0 -1.57
+  children [
+    USE My_Wall
+  ]
+  name "solid(4)"
+  boundingObject USE My_Wall
+  physics USE Ball_Physics
+}
+DEF Wall4_Solid Solid {
+  translation -1 0.05 0
+  rotation 0 1 0 -1.57
+  children [
+    USE My_Wall
+  ]
+  name "solid(5)"
+  boundingObject USE My_Wall
+  physics Physics {
+  }
+}
+DEF Dumbell_Solid Solid {
+  translation 0.580009 0.2 -0.268313
+  children [
+    DEF G0 Group {
+      children [
+        Transform {
+          translation 0 0.05 0
+          children [
+            DEF Globe Shape {
+              appearance PBRAppearance {
+              }
+              geometry Sphere {
+                radius 0.04
+                subdivision 2
+              }
+            }
+          ]
+        }
+        Shape {
+          appearance PBRAppearance {
+          }
+          geometry Cylinder {
+            height 0.1
+            radius 0.01
+          }
+        }
+        Transform {
+          translation 0 -0.05 0
+          children [
+            USE Globe
+          ]
+        }
+      ]
+    }
+  ]
+  name "solid(6)"
+  contactMaterial "db_contact_material"
+  boundingObject USE G0
+  physics Physics {
+    mass 5
+  }
+}
+DEF diff_drive_complete Robot {
+  translation 0 0.18 0
+  children [
+    DEF diff_drive_chassis Shape {
+      appearance PBRAppearance {
+      }
+      geometry Box {
+        size 0.1 0.05 0.2
+      }
+    }
+    DEF diff_drive_wheel_top_left_hinge HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor 0.06 0 0.05
+      }
+      device [
+        RotationalMotor {
+          name "diff_drive_wheel1_device"
+        }
+      ]
+      endPoint Solid {
+        translation 0.06 0 0.05
+        rotation 0 0 1 1.57
+        children [
+          DEF diff_drive_wheel Shape {
+            appearance PBRAppearance {
+              baseColor 1 0 0
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        boundingObject USE diff_drive_wheel
+        physics DEF diff_drive_wheel_physics Physics {
+        }
+      }
+    }
+    DEF diff_drive_wheel_top_right_hinge HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor -0.06 0 0.05
+      }
+      device [
+        RotationalMotor {
+          name "diff_drive_wheel2_device"
+        }
+      ]
+      endPoint Solid {
+        translation -0.06 0 0.05
+        rotation 0 0 1 1.57
+        children [
+          USE diff_drive_wheel
+        ]
+        name "solid(1)"
+        boundingObject USE diff_drive_wheel
+        physics USE diff_drive_wheel_physics
+      }
+    }
+    DEF diff_drive_wheel_bottom_left_hinge HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor 0.06 0 -0.05
+      }
+      device [
+        RotationalMotor {
+          name "diff_drive_wheel3_device"
+        }
+      ]
+      endPoint Solid {
+        translation 0.06 0 -0.05
+        rotation 0 0 1 1.57
+        children [
+          USE diff_drive_wheel
+        ]
+        name "solid(2)"
+        boundingObject USE diff_drive_wheel
+        physics USE diff_drive_wheel_physics
+      }
+    }
+    DEF diff_drive_wheel_bottom_right_hinge HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor -0.06 0 -0.05
+      }
+      device [
+        RotationalMotor {
+          name "diff_drive_wheel4_device"
+        }
+      ]
+      endPoint Solid {
+        translation -0.06 0 -0.05
+        rotation 0 0 1 1.57
+        children [
+          USE diff_drive_wheel
+        ]
+        name "solid(3)"
+        boundingObject USE diff_drive_wheel
+        physics USE diff_drive_wheel_physics
+      }
+    }
+    DEF diff_drive_laser_scanner_left DistanceSensor {
+      translation 0.02 0 0.1
+      rotation 0 1 0 -1.27
+      children [
+        DEF diff_drive_laser_scanner_shape Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 1
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "diff_drive_laser_scanner_left"
+      boundingObject USE diff_drive_laser_scanner_shape
+      physics Physics {
+      }
+    }
+    DEF diff_drive_laser_scanner_right DistanceSensor {
+      translation -0.02 0 0.1
+      rotation 0 1 0 -1.87
+      children [
+        DEF diff_drive_laser_scanner_shape Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 1
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "diff_drive_laser_scanner_right"
+      boundingObject USE diff_drive_laser_scanner_shape
+      physics Physics {
+      }
+    }
+    GPS {
+      children [
+        Solid {
+          translation 0 0.03 0
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0 1 1
+                roughness 1
+              }
+              geometry Cylinder {
+                height 0.02
+                radius 0.01
+              }
+            }
+          ]
+        }
+      ]
+      name "diff_drive_gps"
+    }
+  ]
+  boundingObject USE diff_drive_chassis
+  physics Physics {
+  }
+  controller "diff_drive_keyboard_gps_controller"
+}
