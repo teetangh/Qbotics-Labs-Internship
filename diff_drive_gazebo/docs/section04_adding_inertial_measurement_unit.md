@@ -13,8 +13,6 @@ Now open the m2wr.xacro file and append the following code snippet just before t
         <parent link="link_chassis"/>
         <child link="imu_sensor"/>
         <origin xyz="0.0 0.0 0.05" rpy="0.0 0.0 0.0"/>
-        <!-- <axis xyz="0.0 0.0 0.0"/>
-        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/> -->
     </joint>
 
     <!-- IMU Sensor Link -->
@@ -51,7 +49,9 @@ Now open the m2wr.xacro file and append the following code snippet just before t
 
 ### Explanation
 
-Add the snippet just after the <\link> tag and before the \ <robot>
+In the above XML snippet we connect the chassis of the differential drive with the IMU sensor and the rest of the three XML subtags in the link tag define the inertial, visual and collision parameters.To keep the code consistent we define a xacro property of imu_width and imu_height and give it suitable values to fit on the differential drive robot.As for the color,you can pick one as per your choice using an RGB color picker online.Since the visual parameter are not STL, or COLLADA dae files,we can kepp them the same.In case the visual file is very resource heavy, try to keep the collision parameters as light as possible using simple geometrical shapes.
+
+Add the below snippet for the IMU sensor plugin just after the <\link> tag and before the \<robot>.Note that we are publishing on the topic /imu_topic. 
 
 
     <!-- ROS Built-in Gazebo IMU Plugin Reference -->

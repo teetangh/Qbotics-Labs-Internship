@@ -18,7 +18,6 @@ Now open the m2wr.xacro file and append the following code snippet just before t
     <link name="base_link">
         <inertial>
             <mass value="0.1"/>
-            <!-- <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/> -->
             <inertia ixx="${(1/12) * 0.1 * (3 * VLP_16_base_radius * VLP_16_base_radius + VLP_16_base_height * VLP_16_base_height)}" ixy="0" ixz="0" iyy="${(1/12) * 0.1 * (3 * VLP_16_base_radius * VLP_16_base_radius + VLP_16_base_height * VLP_16_base_height)}" iyz="0" izz="${(1/2) * 0.1 * VLP_16_base_radius * VLP_16_base_radius}"/>
         </inertial>
         <visual>
@@ -26,10 +25,6 @@ Now open the m2wr.xacro file and append the following code snippet just before t
             <geometry>
                 <cylinder radius="${VLP_16_base_radius}" length="${VLP_16_base_height}"/>
             </geometry>
-            <!-- <material name="">
-                <color rgba="1.0 0.0 0.0 1.0"/>
-                <texture filename=""/>
-            </material> -->
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.20" rpy="0.0 0.0 0.0"/>
