@@ -1,51 +1,119 @@
-// File:          diff_drive_keyboard_keyboard_gps_imu_LinAct_controller.cpp
-// Date:
-// Description:
-// Author:
-// Modifications:
-
-// You may need to add webots include files such as
-// <webots/DistanceSensor.hpp>, <webots/Motor.hpp>, etc.
-// and/or to add some other includes
+#include <webots/DistanceSensor.hpp>
+#include <webots/Motor.hpp>
 #include <webots/Robot.hpp>
+#include <webots/Keyboard.hpp>
+#include <webots/GPS.hpp>
+#include <webots/InertialUnit.hpp>
 
-// All the webots classes are defined in the "webots" namespace
+#define TIME_STEP 64
 using namespace webots;
 
-// This is the main program of your controller.
-// It creates an instance of your Robot instance, launches its
-// function(s) and destroys it at the end of the execution.
-// Note that only one instance of Robot should be created in
-// a controller program.
-// The arguments of the main function can be specified by the
-// "controllerArgs" field of the Robot node
-int main(int argc, char **argv) {
-  // create the Robot instance.
+int main(int argc, char const *argv[])
+{
   Robot *robot = new Robot();
+  Keyboard kb;
+  DistanceSensor *ds[2];
+  char dsNames[2][50] = {"diff_drive_laser_scanner_right", "diff_drive_laser_scanner_left"};
 
-  // get the time step of the current world.
-  int timeStep = (int)robot->getBasicTimeStep();
+  for (int i = 0; i < 2; i++)
+  {
+    ds[i] = robot->getDistanceSensor(dsNames[i]);
+    ds[i]->enable(TIME_STEP);
+  }
 
-  // You should insert a getDevice-like function in order to get the
-  // instance of a device of the robot. Something like:
-  //  Motor *motor = robot->getMotor("motorname");
-  //  DistanceSensor *ds = robot->getDistanceSensor("dsname");
-  //  ds->enable(timeStep);
+  GPS *gp = robot->getGPS("diff_drive_gps");
+  gp->enable(TIME_STEP);
 
-  // Main loop:
-  // - perform simulation steps until Webots is stopping the controller
-  while (robot->step(timeStep) != -1) {
-    // Read the sensors:
-    // Enter here functions to read sensor data, like:
-    //  double val = ds->getValue();
+  InertialUnit *iu;
+  iu = robot->getInertialUnit("diff_drive_imu");
+  iu->enable(TIME_STEP);
 
-    // Process sensor data here.
+  Motor *lr;
+  lr = robot->getMotor("diff_drive_linear_actuator_motor");
 
-    // Enter here functions to send actuator commands, like:
-    //  motor->setPosition(10.0);
+  Motor *wheels[4];
+  char wheels_names[4][50] = {
+      "diff_drive_wheel1_device",
+      "diff_drive_wheel2_device",
+      "diff_drive_wheel3_device",
+      "diff_drive_wheel4_device",
   };
 
-  // Enter here exit cleanup code.
+  for (int i = 0; i < 4; i++)
+  {
+    wheels[i] = robot->getMotor(wheels_names[i]);
+    wheels[i]->setPosition(INFINITY);
+    wheels[i]->setVelocity(0.0);
+  }
+
+  // Speeds for the wheels
+  kb.enable(TIME_STEP);
+  double leftSpeed = 0.0;
+  double rightSpeed = 0.0;
+
+  // Speeds for the linear actuator
+  double linear = 0.0;
+
+  while (robot->step(TIME_STEP) != -1)
+  {
+    // Scanning for the keyboard input
+    int key = kb.getKey();
+
+    // In case the arrow keys are pressed
+    if (key == 315)
+    {
+      leftSpeed = 1.0;
+      rightSpeed = 1.0;
+    }
+    else if (key == 317)
+    {
+      leftSpeed = -1.0;
+      rightSpeed = -1.0;
+    }
+    else if (key == 316)
+    {
+      leftSpeed = 1.0;
+      rightSpeed = -1.0;
+    }
+    else if (key == 314)
+    {
+      leftSpeed = -1.0;
+      rightSpeed = 1.0;
+    }
+    // In case random other key is pressed
+    else
+    {
+      leftSpeed = 0;
+      rightSpeed = 0;
+    }
+
+    if (key == 87)
+      linear += 0.005;
+    else if (key == 83)
+      linear -= 0.005;
+    else
+      linear += 0;
+    lr->setPosition(linear);
+
+    std::cout << "*************************" << std::endl;
+
+    std::cout << ds[0]->getValue() << "=Right Sensor" << std::endl;
+    std::cout << ds[1]->getValue() << "=Left Sensor" << std::endl;
+
+    std::cout << "X: " << gp->getValues()[0] << std::endl;
+    std::cout << "Y: " << gp->getValues()[1] << std::endl;
+    std::cout << "Z: " << gp->getValues()[2] << std::endl;
+
+    std::cout << "Angle X: " << iu->getRollPitchYaw()[0] << std::endl;
+    std::cout << "Angle Y: " << iu->getRollPitchYaw()[1] << std::endl;
+    std::cout << "Angle Z: " << iu->getRollPitchYaw()[2] << std::endl;
+
+    std::cout << "*************************" << std::endl;
+    wheels[0]->setVelocity(leftSpeed);
+    wheels[1]->setVelocity(rightSpeed);
+    wheels[2]->setVelocity(leftSpeed);
+    wheels[3]->setVelocity(rightSpeed);
+  }
 
   delete robot;
   return 0;
