@@ -11,7 +11,7 @@ WorldInfo {
 }
 Viewpoint {
   orientation -0.152149747558851 0.9228867325103443 0.35373794435168854 2.3858405942440117
-  position 0.31762385576477326 0.45067135918066065 -0.3110565004150693
+  position 0.3040875829391914 0.4339153718371683 -0.2982321483260921
   follow "robot"
   followType "Mounted Shot"
 }
@@ -332,9 +332,28 @@ DEF diff_drive_complete Robot {
       ]
       name "diff_drive_gps"
     }
+    InertialUnit {
+      children [
+        Solid {
+          translation 0 0.03 0.055
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 1 0.5 0
+                metalness 0
+              }
+              geometry Box {
+                size 0.02 0.02 0.02
+              }
+            }
+          ]
+        }
+      ]
+      name "diff_drive_imu"
+    }
   ]
   boundingObject USE diff_drive_chassis
   physics Physics {
   }
-  controller "diff_drive_keyboard_gps_controller"
+  controller "diff_drive_keyboard_gps_imu_controller"
 }

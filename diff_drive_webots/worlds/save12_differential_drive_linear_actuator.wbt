@@ -332,9 +332,68 @@ DEF diff_drive_complete Robot {
       ]
       name "diff_drive_gps"
     }
+    InertialUnit {
+      children [
+        Solid {
+          translation 0 0.03 0.055
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 1 0.5 0
+                metalness 0
+              }
+              geometry Box {
+                size 0.02 0.02 0.02
+              }
+            }
+          ]
+        }
+      ]
+      name "diff_drive_imu"
+    }
+    DEF diff_drive_linear_actuator Solid {
+      translation 0 0.14 -0.06
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.02 0.25 0.02
+          }
+        }
+      ]
+      name "diff_drive_linear_actuator"
+    }
+    SliderJoint {
+      jointParameters JointParameters {
+        axis 0 1 0
+      }
+      device [
+        LinearMotor {
+          name "diff_drive_linear_actuator_motor"
+          maxPosition 0.2
+        }
+      ]
+      endPoint Solid {
+        translation 0 0.055 -0.04
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 1 0 0
+            }
+            geometry Box {
+              size 0.15 0.02 0.02
+            }
+          }
+        ]
+        name "solid(4)"
+      }
+    }
   ]
   boundingObject USE diff_drive_chassis
   physics Physics {
   }
-  controller "diff_drive_keyboard_gps_controller"
+  controller "diff_drive_keyboard_gps_imu_controller"
 }
