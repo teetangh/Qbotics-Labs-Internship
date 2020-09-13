@@ -1,8 +1,8 @@
-# Install script for directory: /home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/src/m2wr_worlds
+# Install script for directory: /home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/src/m2wr_worlds
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/install")
+  set(CMAKE_INSTALL_PREFIX "/home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build/m2wr_worlds/catkin_generated/installspace/m2wr_worlds.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/build/m2wr_worlds/catkin_generated/installspace/m2wr_worlds.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/m2wr_worlds/cmake" TYPE FILE FILES
-    "/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build/m2wr_worlds/catkin_generated/installspace/m2wr_worldsConfig.cmake"
-    "/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build/m2wr_worlds/catkin_generated/installspace/m2wr_worldsConfig-version.cmake"
+    "/home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/build/m2wr_worlds/catkin_generated/installspace/m2wr_worldsConfig.cmake"
+    "/home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/build/m2wr_worlds/catkin_generated/installspace/m2wr_worldsConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/m2wr_worlds" TYPE FILE FILES "/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/src/m2wr_worlds/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/m2wr_worlds" TYPE FILE FILES "/home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/src/m2wr_worlds/package.xml")
 endif()
 

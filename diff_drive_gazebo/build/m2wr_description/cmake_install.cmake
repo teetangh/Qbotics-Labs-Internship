@@ -1,8 +1,8 @@
-# Install script for directory: /home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/src/m2wr_description
+# Install script for directory: /home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/src/m2wr_description
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/install")
+  set(CMAKE_INSTALL_PREFIX "/home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build/m2wr_description/catkin_generated/installspace/m2wr_description.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/build/m2wr_description/catkin_generated/installspace/m2wr_description.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/m2wr_description/cmake" TYPE FILE FILES
-    "/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build/m2wr_description/catkin_generated/installspace/m2wr_descriptionConfig.cmake"
-    "/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build/m2wr_description/catkin_generated/installspace/m2wr_descriptionConfig-version.cmake"
+    "/home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/build/m2wr_description/catkin_generated/installspace/m2wr_descriptionConfig.cmake"
+    "/home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/build/m2wr_description/catkin_generated/installspace/m2wr_descriptionConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/m2wr_description" TYPE FILE FILES "/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/src/m2wr_description/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/m2wr_description" TYPE FILE FILES "/home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/src/m2wr_description/package.xml")
 endif()
 

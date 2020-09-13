@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/src
+CMAKE_SOURCE_DIR = /home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build
+CMAKE_BINARY_DIR = /home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/build
 
 # Utility rule file for actionlib_generate_messages_nodejs.
 
@@ -63,10 +63,10 @@ velodyne_simulator/velodyne_gazebo_plugins/CMakeFiles/actionlib_generate_message
 .PHONY : velodyne_simulator/velodyne_gazebo_plugins/CMakeFiles/actionlib_generate_messages_nodejs.dir/build
 
 velodyne_simulator/velodyne_gazebo_plugins/CMakeFiles/actionlib_generate_messages_nodejs.dir/clean:
-	cd /home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build/velodyne_simulator/velodyne_gazebo_plugins && $(CMAKE_COMMAND) -P CMakeFiles/actionlib_generate_messages_nodejs.dir/cmake_clean.cmake
+	cd /home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/build/velodyne_simulator/velodyne_gazebo_plugins && $(CMAKE_COMMAND) -P CMakeFiles/actionlib_generate_messages_nodejs.dir/cmake_clean.cmake
 .PHONY : velodyne_simulator/velodyne_gazebo_plugins/CMakeFiles/actionlib_generate_messages_nodejs.dir/clean
 
 velodyne_simulator/velodyne_gazebo_plugins/CMakeFiles/actionlib_generate_messages_nodejs.dir/depend:
-	cd /home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/src /home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/src/velodyne_simulator/velodyne_gazebo_plugins /home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build /home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build/velodyne_simulator/velodyne_gazebo_plugins /home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/build/velodyne_simulator/velodyne_gazebo_plugins/CMakeFiles/actionlib_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/src /home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/src/velodyne_simulator/velodyne_gazebo_plugins /home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/build /home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/build/velodyne_simulator/velodyne_gazebo_plugins /home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/build/velodyne_simulator/velodyne_gazebo_plugins/CMakeFiles/actionlib_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : velodyne_simulator/velodyne_gazebo_plugins/CMakeFiles/actionlib_generate_messages_nodejs.dir/depend
 

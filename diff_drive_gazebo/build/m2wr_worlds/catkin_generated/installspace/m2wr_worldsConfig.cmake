@@ -67,14 +67,14 @@ set(m2wr_worlds_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(m2wr_worlds_SOURCE_PREFIX /home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/src/m2wr_worlds)
-  set(m2wr_worlds_DEVEL_PREFIX /home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/devel)
+  set(m2wr_worlds_SOURCE_PREFIX /home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/src/m2wr_worlds)
+  set(m2wr_worlds_DEVEL_PREFIX /home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/devel)
   set(m2wr_worlds_INSTALL_PREFIX "")
   set(m2wr_worlds_PREFIX ${m2wr_worlds_DEVEL_PREFIX})
 else()
   set(m2wr_worlds_SOURCE_PREFIX "")
   set(m2wr_worlds_DEVEL_PREFIX "")
-  set(m2wr_worlds_INSTALL_PREFIX /home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/install)
+  set(m2wr_worlds_INSTALL_PREFIX /home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/install)
   set(m2wr_worlds_PREFIX ${m2wr_worlds_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/install/lib;/opt/ros/melodic/lib)
+    foreach(path /home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/install/lib;/home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

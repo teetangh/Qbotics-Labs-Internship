@@ -1,4 +1,4 @@
-prefix=/home/kaustav/Qbotics-Labs-Internship/diff_drive_gazebo/install
+prefix=/home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/install
 
 Name: velodyne_gazebo_plugins
 Description: Description of velodyne_gazebo_plugins
