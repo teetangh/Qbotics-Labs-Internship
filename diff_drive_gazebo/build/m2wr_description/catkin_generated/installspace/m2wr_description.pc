@@ -1,8 +1,0 @@
-prefix=/home/kaustav/Desktop/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/install
-
-Name: m2wr_description
-Description: Description of m2wr_description
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<robot name="m2wr" 
+<robot name="m2wr"
     xmlns:xacro="https://www.ros.org/wiki/xacro">
 
     <!-- /////////////////////////////////////// Importing Urdf/Xacro Dependencies for the robot /////////////////////////////////////////////-->
@@ -140,7 +140,7 @@
     </joint> -->
 
 
-    <!-- /////////////////////////////////////// Veloddyne Lidar /////////////////////////////////////////////-->
+    <!-- /////////////////////////////////////// Veloddyne VLP-16 Lidar /////////////////////////////////////////////-->
 
     <xacro:property name="VLP_16_base_radius" value="0.05"/>
     <xacro:property name="VLP_16_base_height" value="0.5"/>
