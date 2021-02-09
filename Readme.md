@@ -19,10 +19,10 @@ rm -rf build/ devel/
 catkin_make
 
 if [ -n "$($SHELL -c 'echo $ZSH_VERSION')" ]; then
-    echo "source Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/devel/setup.zsh" >>~/.zshrc
+    echo "source ~/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/devel/setup.zsh" >>~/.zshrc
     source ~/.zshrc
 elif [ -n "$($SHELL -c 'echo $BASH_VERSION')" ]; then
-    echo "source Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/devel/setup.bash" >>~/.bashrc
+    echo "source ~/Qbotics-Labs-Internship-Differential-Drives/diff_drive_gazebo/devel/setup.bash" >>~/.bashrc
     source ~/.bashrc
 fi
 
